@@ -8011,7 +8011,7 @@ GameBoyCore.prototype.memoryReadROM = function (parentObj, address) {
 };
 GameBoyCore.prototype.memoryReadMBC = function (parentObj, address) {
   //Switchable RAM
-  if (parentObj.MBCRAMBanksEnabled || this.opts.overrideMbc) {
+  if (parentObj.MBCRAMBanksEnabled || false) {
     return parentObj.MBCRam[address + parentObj.currMBCRAMBankPosition];
   }
   //debug("Reading from disabled RAM.", 1);
@@ -8019,7 +8019,7 @@ GameBoyCore.prototype.memoryReadMBC = function (parentObj, address) {
 };
 GameBoyCore.prototype.memoryReadMBC7 = function (parentObj, address) {
   //Switchable RAM
-  if (parentObj.MBCRAMBanksEnabled || this.opts.overrideMbc) {
+  if (parentObj.MBCRAMBanksEnabled || false) {
     switch (address) {
       case 0xA000:
       case 0xA060:
@@ -8049,7 +8049,7 @@ GameBoyCore.prototype.memoryReadMBC7 = function (parentObj, address) {
 };
 GameBoyCore.prototype.memoryReadMBC3 = function (parentObj, address) {
   //Switchable RAM
-  if (parentObj.MBCRAMBanksEnabled || this.opts.overrideMbc) {
+  if (parentObj.MBCRAMBanksEnabled || false) {
     switch (parentObj.currMBCRAMBank) {
       case 0x00:
       case 0x01:
@@ -8372,12 +8372,12 @@ GameBoyCore.prototype.memoryHighWriteNormal = function (parentObj, address, data
   parentObj.memory[0xFF00 | address] = data;
 };
 GameBoyCore.prototype.memoryWriteMBCRAM = function (parentObj, address, data) {
-  if (parentObj.MBCRAMBanksEnabled || this.opts.overrideMbc) {
+  if (parentObj.MBCRAMBanksEnabled || false) {
     parentObj.MBCRam[address + parentObj.currMBCRAMBankPosition] = data;
   }
 };
 GameBoyCore.prototype.memoryWriteMBC3RAM = function (parentObj, address, data) {
-  if (parentObj.MBCRAMBanksEnabled || this.opts.overrideMbc) {
+  if (parentObj.MBCRAMBanksEnabled || false) {
     switch (parentObj.currMBCRAMBank) {
       case 0x00:
       case 0x01:
